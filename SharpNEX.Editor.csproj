@@ -5,9 +5,9 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4A5049A7-8D64-4444-8C62-771D930B6784}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>SharpNEX.Engine</RootNamespace>
-    <AssemblyName>SharpNEX.Engine</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SharpNEX.Editor</RootNamespace>
+    <AssemblyName>SharpNEX.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,16 +44,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameData.cs" />
     <Compile Include="GUI\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\SceneManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SceneManager.Designer.cs">
+      <DependentUpon>SceneManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SceneManager.resx">
+      <DependentUpon>SceneManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -63,7 +73,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -85,6 +97,10 @@
     <ProjectReference Include="..\SharpNEX.Editor.UI\SharpNEX.Editor.UI.csproj">
       <Project>{f1ab6b46-89fc-4a99-b39e-1e7ccd056e54}</Project>
       <Name>SharpNEX.Editor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpNEX.Engine\SharpNEX.Engine.csproj">
+      <Project>{8c7973f8-564a-4484-938f-09a02616e5ea}</Project>
+      <Name>SharpNEX.Engine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

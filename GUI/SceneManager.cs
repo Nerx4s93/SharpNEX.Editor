@@ -41,7 +41,6 @@ namespace SharpNEX.Engine.GUI
 
         private void UpdateTreeView()
         {
-            treeViewGameObjects.Nodes.Add("dada");
             var gameObjects = GameData.Scene.GetGameObjects();
 
             foreach (var gameObject in gameObjects)

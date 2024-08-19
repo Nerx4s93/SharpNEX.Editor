@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.titleBar1 = new SharpNEX.Editor.UI.TitleBar();
-            this.treeViewGameObjects = new System.Windows.Forms.TreeView();
+            this.TreeViewGameObjects = new System.Windows.Forms.TreeView();
             this.sceneManagementMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RenameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,18 +51,22 @@
             this.titleBar1.LogoColorFormNotActive = System.Drawing.Color.Gray;
             this.titleBar1.Margin = new System.Windows.Forms.Padding(2);
             this.titleBar1.Name = "titleBar1";
-            this.titleBar1.Size = new System.Drawing.Size(838, 29);
+            this.titleBar1.Size = new System.Drawing.Size(821, 29);
             this.titleBar1.TabIndex = 1;
             this.titleBar1.Text = "FormMain";
             // 
-            // treeViewGameObjects
+            // TreeViewGameObjects
             // 
-            this.treeViewGameObjects.Indent = 10;
-            this.treeViewGameObjects.Location = new System.Drawing.Point(12, 34);
-            this.treeViewGameObjects.Name = "treeViewGameObjects";
-            this.treeViewGameObjects.Size = new System.Drawing.Size(788, 554);
-            this.treeViewGameObjects.TabIndex = 2;
-            this.treeViewGameObjects.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeViewGameObjects_MouseUp);
+            this.TreeViewGameObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TreeViewGameObjects.Indent = 10;
+            this.TreeViewGameObjects.LabelEdit = true;
+            this.TreeViewGameObjects.Location = new System.Drawing.Point(12, 34);
+            this.TreeViewGameObjects.Name = "TreeViewGameObjects";
+            this.TreeViewGameObjects.Size = new System.Drawing.Size(788, 521);
+            this.TreeViewGameObjects.TabIndex = 2;
+            this.TreeViewGameObjects.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.TreeViewGameObjects_AfterLabelEdit);
+            this.TreeViewGameObjects.DoubleClick += new System.EventHandler(this.TreeViewGameObjects_DoubleClick);
+            this.TreeViewGameObjects.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TreeViewGameObjects_MouseUp);
             // 
             // sceneManagementMenu
             // 
@@ -77,8 +81,9 @@
             // RenameToolStripMenuItem
             // 
             this.RenameToolStripMenuItem.Name = "RenameToolStripMenuItem";
-            this.RenameToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.RenameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.RenameToolStripMenuItem.Text = "Переименовать";
+            this.RenameToolStripMenuItem.Click += new System.EventHandler(this.RenameToolStripMenuItem_Click);
             // 
             // DeleteToolStripMenuItem
             // 
@@ -101,8 +106,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 820);
-            this.Controls.Add(this.treeViewGameObjects);
+            this.ClientSize = new System.Drawing.Size(821, 605);
+            this.Controls.Add(this.TreeViewGameObjects);
             this.Controls.Add(this.titleBar1);
             this.Name = "SceneManager";
             this.Text = "SceneManager";
@@ -114,7 +119,7 @@
         #endregion
 
         private Editor.UI.TitleBar titleBar1;
-        private System.Windows.Forms.TreeView treeViewGameObjects;
+        private System.Windows.Forms.TreeView TreeViewGameObjects;
         private System.Windows.Forms.ContextMenuStrip sceneManagementMenu;
         private System.Windows.Forms.ToolStripMenuItem RenameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;

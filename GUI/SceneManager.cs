@@ -13,6 +13,7 @@ namespace SharpNEX.Engine.GUI
     public partial class SceneManager : FormTitleBarlessBase
     {
         private FormDockHandler _formDockHandler;
+        private TreeNode _selectedItem;
 
         public SceneManager()
         {
@@ -36,13 +37,36 @@ namespace SharpNEX.Engine.GUI
             GameData.Scene.Instante(gameObject);
         }
 
-        private void treeViewGameObjects_MouseUp(object sender, MouseEventArgs e)
+        #region TreeViewGameObjects
+
+        private void TreeViewGameObjects_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
                 sceneManagementMenu.Show(Cursor.Position);
             }
         }
+
+        private void TreeViewGameObjects_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            var gameObject = e.Node.Tag as GameObject;
+            gameObject.Name = e.Label;
+        }
+
+        private void TreeViewGameObjects_DoubleClick(object sender, EventArgs e)
+        {
+            TreeViewGameObjects.SelectedNode?.BeginEdit();
+        }
+
+        #endregion
+        #region SceneManagementMenu
+
+        private void RenameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeViewGameObjects.SelectedNode?.BeginEdit();
+        }
+
+        #endregion
 
         private void UpdateTreeView()
         {
@@ -54,7 +78,7 @@ namespace SharpNEX.Engine.GUI
                 var treeNode = new TreeNode(gameObject.Name, childs);
                 treeNode.Tag = gameObject;
 
-                treeViewGameObjects.Nodes.Add(treeNode);
+                TreeViewGameObjects.Nodes.Add(treeNode);
             }
         }
 
@@ -66,7 +90,7 @@ namespace SharpNEX.Engine.GUI
             {
                 var childs = GetChildren(childrenGameObject);
                 var child = new TreeNode(childrenGameObject.Name, childs);
-                child.Tag = child;
+                child.Tag = childrenGameObject;
 
                 children.Add(child);
             }

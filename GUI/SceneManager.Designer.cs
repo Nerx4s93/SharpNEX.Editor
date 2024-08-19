@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.titleBar1 = new SharpNEX.Editor.UI.TitleBar();
             this.treeViewGameObjects = new System.Windows.Forms.TreeView();
+            this.sceneManagementMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.RenameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.CreateEmptyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sceneManagementMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // titleBar1
@@ -44,7 +51,7 @@
             this.titleBar1.LogoColorFormNotActive = System.Drawing.Color.Gray;
             this.titleBar1.Margin = new System.Windows.Forms.Padding(2);
             this.titleBar1.Name = "titleBar1";
-            this.titleBar1.Size = new System.Drawing.Size(824, 29);
+            this.titleBar1.Size = new System.Drawing.Size(838, 29);
             this.titleBar1.TabIndex = 1;
             this.titleBar1.Text = "FormMain";
             // 
@@ -55,17 +62,51 @@
             this.treeViewGameObjects.Name = "treeViewGameObjects";
             this.treeViewGameObjects.Size = new System.Drawing.Size(788, 554);
             this.treeViewGameObjects.TabIndex = 2;
-            this.treeViewGameObjects.MouseClick += new System.Windows.Forms.MouseEventHandler(this.treeViewGameObjects_MouseClick);
+            this.treeViewGameObjects.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeViewGameObjects_MouseUp);
+            // 
+            // sceneManagementMenu
+            // 
+            this.sceneManagementMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RenameToolStripMenuItem,
+            this.DeleteToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.CreateEmptyToolStripMenuItem});
+            this.sceneManagementMenu.Name = "contextMenuStrip1";
+            this.sceneManagementMenu.Size = new System.Drawing.Size(162, 76);
+            // 
+            // RenameToolStripMenuItem
+            // 
+            this.RenameToolStripMenuItem.Name = "RenameToolStripMenuItem";
+            this.RenameToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.RenameToolStripMenuItem.Text = "Переименовать";
+            // 
+            // DeleteToolStripMenuItem
+            // 
+            this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.DeleteToolStripMenuItem.Text = "Удалить";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
+            // 
+            // CreateEmptyToolStripMenuItem
+            // 
+            this.CreateEmptyToolStripMenuItem.Name = "CreateEmptyToolStripMenuItem";
+            this.CreateEmptyToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.CreateEmptyToolStripMenuItem.Text = "Создать пустой";
             // 
             // SceneManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 645);
+            this.ClientSize = new System.Drawing.Size(838, 820);
             this.Controls.Add(this.treeViewGameObjects);
             this.Controls.Add(this.titleBar1);
             this.Name = "SceneManager";
             this.Text = "SceneManager";
+            this.sceneManagementMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -74,5 +115,10 @@
 
         private Editor.UI.TitleBar titleBar1;
         private System.Windows.Forms.TreeView treeViewGameObjects;
+        private System.Windows.Forms.ContextMenuStrip sceneManagementMenu;
+        private System.Windows.Forms.ToolStripMenuItem RenameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem CreateEmptyToolStripMenuItem;
     }
 }

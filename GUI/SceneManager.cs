@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Drawing;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 using SharpNEX.Editor.UI.GUI;
@@ -34,9 +36,12 @@ namespace SharpNEX.Engine.GUI
             GameData.Scene.Instante(gameObject);
         }
 
-        private void treeViewGameObjects_MouseClick(object sender, MouseEventArgs e)
+        private void treeViewGameObjects_MouseUp(object sender, MouseEventArgs e)
         {
-
+            if (e.Button == MouseButtons.Right)
+            {
+                sceneManagementMenu.Show(Cursor.Position);
+            }
         }
 
         private void UpdateTreeView()

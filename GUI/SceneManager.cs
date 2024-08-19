@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Drawing;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 using SharpNEX.Editor.UI.GUI;
@@ -20,7 +21,7 @@ namespace SharpNEX.Engine.GUI
             _formDockHandler = new FormDockHandler(this);
 
             TestCode_AddGameObjects();
-            UpdateTreeView();
+            LoadTreeView();
         }
 
         private void TestCode_AddGameObjects()
@@ -67,34 +68,73 @@ namespace SharpNEX.Engine.GUI
 
         #endregion
 
-        private void UpdateTreeView()
+        private void LoadTreeView()
         {
+            TreeViewGameObjects.Nodes.Clear();
+
             var gameObjects = GameData.Scene.GetGameObjects();
 
             foreach (var gameObject in gameObjects)
             {
-                var childs = GetChildren(gameObject);
-                var treeNode = new TreeNode(gameObject.Name, childs);
-                treeNode.Tag = gameObject;
-
-                TreeViewGameObjects.Nodes.Add(treeNode);
+                AddGameObjectToTreeView(gameObject);
+                GetChildren(gameObject);
             }
         }
 
-        private TreeNode[] GetChildren(GameObject gameObject)
+        private void GetChildren(GameObject gameObject)
         {
-            var children = new List<TreeNode>();
-
             foreach (var childrenGameObject in gameObject.GetChilds())
             {
-                var childs = GetChildren(childrenGameObject);
-                var child = new TreeNode(childrenGameObject.Name, childs);
-                child.Tag = childrenGameObject;
+                AddGameObjectToTreeView(childrenGameObject);
+                GetChildren(childrenGameObject);
+            }
+        }
 
-                children.Add(child);
+        private void AddGameObjectToTreeView(GameObject gameObject)
+        {
+            if (gameObject.Parent == null)
+            {
+                var treeNode = new TreeNode(gameObject.Name)
+                {
+                    Tag = gameObject
+                };
+
+                TreeViewGameObjects.Nodes.Add(treeNode);
+            }
+            else
+        {
+                var treeNodeList = GetAllNodes(TreeViewGameObjects);
+
+                var treeNodeParent = treeNodeList.Find(x => x.Tag as GameObject == gameObject.Parent);
+
+                var treeNode = new TreeNode(gameObject.Name)
+            {
+                    Tag = gameObject
+                };
+
+                treeNodeParent.Nodes.Add(treeNode);
+            }
+        }
+
+        public static List<TreeNode> GetAllNodes(TreeView _self)
+        {
+            List<TreeNode> result = new List<TreeNode>();
+            foreach (TreeNode child in _self.Nodes)
+            {
+                result.AddRange(GetAllNodes(child));
+            }
+            return result;
             }
 
-            return children.ToArray();
+        public static List<TreeNode> GetAllNodes(TreeNode _self)
+        {
+            List<TreeNode> result = new List<TreeNode>();
+            result.Add(_self);
+            foreach (TreeNode child in _self.Nodes)
+            {
+                result.AddRange(GetAllNodes(child));
+            }
+            return result;
         }
     }
 }

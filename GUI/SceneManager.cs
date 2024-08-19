@@ -27,14 +27,14 @@ namespace SharpNEX.Engine.GUI
         private void TestCode_AddGameObjects()
         {
             GameData.Scene = new Scene("ExempleScene");
-            GameObject gameObject = new GameObject("asdasd", new List<Script>());
-            GameObject gameObject1 = new GameObject("asdasd", new List<Script>());
-            GameObject gameObject2 = new GameObject("asdasd", new List<Script>());
-            GameObject gameObject3 = new GameObject("asdasd", new List<Script>());
-            gameObject.AddChild(gameObject1);
-            gameObject.AddChild(gameObject2);
-            gameObject1.AddChild(gameObject3);
-            GameData.Scene.Instante(gameObject);
+            GameObject one = new GameObject("1", new List<Script>());
+            GameObject two = new GameObject("2", new List<Script>());
+            GameObject three = new GameObject("3", new List<Script>());
+            GameObject four = new GameObject("4", new List<Script>());
+            one.AddChild(two);
+            one.AddChild(three);
+            two.AddChild(four);
+            GameData.Scene.Instante(one);
         }
 
         #region TreeViewGameObjects
@@ -64,6 +64,23 @@ namespace SharpNEX.Engine.GUI
         private void RenameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TreeViewGameObjects.SelectedNode?.BeginEdit();
+        }
+
+        private void CreateEmptyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GameObject gameObject = new GameObject("GameObject");
+
+            if (TreeViewGameObjects.SelectedNode == null)
+            {
+                GameData.Scene.Instante(gameObject);
+            }
+            else
+            {
+                var parent = TreeViewGameObjects.SelectedNode.Tag as GameObject;
+                GameData.Scene.Instante(gameObject, parent);
+            }
+
+            AddGameObjectToTreeView(gameObject);
         }
 
         #endregion
@@ -102,13 +119,13 @@ namespace SharpNEX.Engine.GUI
                 TreeViewGameObjects.Nodes.Add(treeNode);
             }
             else
-        {
+            {
                 var treeNodeList = GetAllNodes(TreeViewGameObjects);
 
                 var treeNodeParent = treeNodeList.Find(x => x.Tag as GameObject == gameObject.Parent);
 
                 var treeNode = new TreeNode(gameObject.Name)
-            {
+                {
                     Tag = gameObject
                 };
 
@@ -124,7 +141,7 @@ namespace SharpNEX.Engine.GUI
                 result.AddRange(GetAllNodes(child));
             }
             return result;
-            }
+        }
 
         public static List<TreeNode> GetAllNodes(TreeNode _self)
         {

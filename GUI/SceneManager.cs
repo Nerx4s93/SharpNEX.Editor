@@ -47,6 +47,7 @@ namespace SharpNEX.Engine.GUI
             {
                 var childs = GetChildren(gameObject);
                 var treeNode = new TreeNode(gameObject.Name, childs);
+                treeNode.Tag = gameObject;
 
                 treeViewGameObjects.Nodes.Add(treeNode);
             }
@@ -60,6 +61,7 @@ namespace SharpNEX.Engine.GUI
             {
                 var childs = GetChildren(childrenGameObject);
                 var child = new TreeNode(childrenGameObject.Name, childs);
+                child.Tag = child;
 
                 children.Add(child);
             }

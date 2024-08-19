@@ -13,7 +13,6 @@ namespace SharpNEX.Engine.GUI
     public partial class SceneManager : FormTitleBarlessBase
     {
         private FormDockHandler _formDockHandler;
-        private TreeNode _selectedItem;
 
         public SceneManager()
         {

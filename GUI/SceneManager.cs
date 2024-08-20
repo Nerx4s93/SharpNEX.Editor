@@ -44,6 +44,9 @@ namespace SharpNEX.Engine.GUI
             if (e.Button == MouseButtons.Right)
             {
                 sceneManagementMenu.Show(Cursor.Position);
+
+                bool objectHasBeenSelected = TreeViewGameObjects.SelectedNode == null;
+                RenameToolStripMenuItem.Enabled = objectHasBeenSelected;
             }
         }
 
@@ -63,7 +66,7 @@ namespace SharpNEX.Engine.GUI
 
         private void RenameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TreeViewGameObjects.SelectedNode?.BeginEdit();
+            TreeViewGameObjects.SelectedNode.BeginEdit();
         }
 
         private void CreateEmptyToolStripMenuItem_Click(object sender, EventArgs e)

@@ -35,6 +35,9 @@ namespace SharpNEX.Engine.GUI
             one.AddChild(three);
             two.AddChild(four);
             GameData.Scene.Instante(one);
+            GameData.Scene.Instante(two);
+            GameData.Scene.Instante(three);
+            GameData.Scene.Instante(four);
         }
 
         #region TreeViewGameObjects
@@ -45,8 +48,9 @@ namespace SharpNEX.Engine.GUI
             {
                 sceneManagementMenu.Show(Cursor.Position);
 
-                bool objectHasBeenSelected = TreeViewGameObjects.SelectedNode == null;
-                RenameToolStripMenuItem.Enabled = objectHasBeenSelected;
+                //bool objectHasBeenSelected = TreeViewGameObjects.SelectedNode == null;
+                //RenameToolStripMenuItem.Enabled = objectHasBeenSelected;
+                //DeleteToolStripMenuItem.Enabled = objectHasBeenSelected;
             }
         }
 
@@ -69,9 +73,19 @@ namespace SharpNEX.Engine.GUI
             TreeViewGameObjects.SelectedNode.BeginEdit();
         }
 
-        private void CreateEmptyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GameObject gameObject = new GameObject("GameObject");
+            var node = TreeViewGameObjects.SelectedNode;
+
+            var gameObject = node.Tag as GameObject;
+            GameData.Scene.Destroy(gameObject);
+
+            TreeViewGameObjects.Nodes.Remove(node);
+        }
+
+        private void CreateEmptyToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var gameObject = new GameObject("GameObject");
 
             if (TreeViewGameObjects.SelectedNode == null)
             {

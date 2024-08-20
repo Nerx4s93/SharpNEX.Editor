@@ -51,7 +51,7 @@
             this.titleBar1.LogoColorFormNotActive = System.Drawing.Color.Gray;
             this.titleBar1.Margin = new System.Windows.Forms.Padding(2);
             this.titleBar1.Name = "titleBar1";
-            this.titleBar1.Size = new System.Drawing.Size(821, 29);
+            this.titleBar1.Size = new System.Drawing.Size(841, 29);
             this.titleBar1.TabIndex = 1;
             this.titleBar1.Text = "FormMain";
             // 
@@ -76,7 +76,7 @@
             this.toolStripSeparator1,
             this.CreateEmptyToolStripMenuItem});
             this.sceneManagementMenu.Name = "contextMenuStrip1";
-            this.sceneManagementMenu.Size = new System.Drawing.Size(162, 76);
+            this.sceneManagementMenu.Size = new System.Drawing.Size(181, 98);
             // 
             // RenameToolStripMenuItem
             // 
@@ -88,25 +88,27 @@
             // DeleteToolStripMenuItem
             // 
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DeleteToolStripMenuItem.Text = "Удалить";
+            this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // CreateEmptyToolStripMenuItem
             // 
             this.CreateEmptyToolStripMenuItem.Name = "CreateEmptyToolStripMenuItem";
-            this.CreateEmptyToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.CreateEmptyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CreateEmptyToolStripMenuItem.Text = "Создать пустой";
+            this.CreateEmptyToolStripMenuItem.Click += new System.EventHandler(this.CreateEmptyToolStripMenuItem_Click_1);
             // 
             // SceneManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 605);
+            this.ClientSize = new System.Drawing.Size(841, 855);
             this.Controls.Add(this.TreeViewGameObjects);
             this.Controls.Add(this.titleBar1);
             this.Name = "SceneManager";

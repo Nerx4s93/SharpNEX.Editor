@@ -114,16 +114,6 @@ namespace SharpNEX.Engine.GUI
             foreach (var gameObject in gameObjects)
             {
                 AddGameObjectToTreeView(gameObject);
-                GetChildren(gameObject);
-            }
-        }
-
-        private void GetChildren(GameObject gameObject)
-        {
-            foreach (var childrenGameObject in gameObject.GetChilds())
-            {
-                AddGameObjectToTreeView(childrenGameObject);
-                GetChildren(childrenGameObject);
             }
         }
 
@@ -153,21 +143,21 @@ namespace SharpNEX.Engine.GUI
             }
         }
 
-        public static List<TreeNode> GetAllNodes(TreeView _self)
+        public static List<TreeNode> GetAllNodes(TreeView treeView)
         {
             List<TreeNode> result = new List<TreeNode>();
-            foreach (TreeNode child in _self.Nodes)
+            foreach (TreeNode child in treeView.Nodes)
             {
                 result.AddRange(GetAllNodes(child));
             }
             return result;
         }
 
-        public static List<TreeNode> GetAllNodes(TreeNode _self)
+        public static List<TreeNode> GetAllNodes(TreeNode treeNove)
         {
             List<TreeNode> result = new List<TreeNode>();
-            result.Add(_self);
-            foreach (TreeNode child in _self.Nodes)
+            result.Add(treeNove);
+            foreach (TreeNode child in treeNove.Nodes)
             {
                 result.AddRange(GetAllNodes(child));
             }

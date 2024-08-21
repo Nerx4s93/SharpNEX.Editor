@@ -51,7 +51,7 @@
             this.titleBar1.LogoColorFormNotActive = System.Drawing.Color.Gray;
             this.titleBar1.Margin = new System.Windows.Forms.Padding(2);
             this.titleBar1.Name = "titleBar1";
-            this.titleBar1.Size = new System.Drawing.Size(847, 29);
+            this.titleBar1.Size = new System.Drawing.Size(851, 29);
             this.titleBar1.TabIndex = 1;
             this.titleBar1.Text = "FormMain";
             // 
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 930);
+            this.ClientSize = new System.Drawing.Size(851, 980);
             this.Controls.Add(this.TreeViewGameObjects);
             this.Controls.Add(this.titleBar1);
             this.Name = "SceneManager";

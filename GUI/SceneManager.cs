@@ -80,18 +80,18 @@ namespace SharpNEX.Engine.GUI
             TreeViewGameObjects.Nodes.Remove(node);
         }
 
-        private void CreateEmptyToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void CreateEmptyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var gameObject = new GameObject("GameObject");
 
             if (TreeViewGameObjects.SelectedNode == null)
             {
-                GameData.Scene.Instante(gameObject);
+                GameData.Scene.Instantiate(gameObject);
             }
             else
             {
                 var parent = TreeViewGameObjects.SelectedNode.Tag as GameObject;
-                GameData.Scene.Instante(gameObject, parent);
+                GameData.Scene.Instantiate(gameObject, parent);
             }
 
             AddGameObjectToTreeView(gameObject);
@@ -143,7 +143,7 @@ namespace SharpNEX.Engine.GUI
                     Tag = gameObject
                 };
 
-                treeNodeParent.Nodes.Add(treeNode);
+               treeNodeParent.Nodes.Add(treeNode);
             }
         }
 

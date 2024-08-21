@@ -97,10 +97,11 @@ namespace SharpNEX.Engine.GUI
             else
             {
                 var parent = TreeViewGameObjects.SelectedNode.Tag as GameObject;
-                GameData.Scene.Instantiate(gameObject, parent);
+                gameObject = GameData.Scene.Instantiate(gameObject, parent);
             }
 
             var treeNode = AddGameObjectToTreeView(gameObject);
+            treeNode.Parent.Expand();
             treeNode.BeginEdit();
         }
 

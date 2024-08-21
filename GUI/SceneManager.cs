@@ -34,10 +34,7 @@ namespace SharpNEX.Engine.GUI
             one.AddChild(two);
             one.AddChild(three);
             two.AddChild(four);
-            GameData.Scene.Instante(one);
-            GameData.Scene.Instante(two);
-            GameData.Scene.Instante(three);
-            GameData.Scene.Instante(four);
+            GameData.Scene.Instantiate(one);
         }
 
         #region TreeViewGameObjects

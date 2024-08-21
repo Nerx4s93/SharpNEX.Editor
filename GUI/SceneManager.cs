@@ -100,7 +100,8 @@ namespace SharpNEX.Engine.GUI
                 GameData.Scene.Instantiate(gameObject, parent);
             }
 
-            AddGameObjectToTreeView(gameObject);
+            var treeNode = AddGameObjectToTreeView(gameObject);
+            treeNode.BeginEdit();
         }
 
         #endregion
@@ -117,15 +118,15 @@ namespace SharpNEX.Engine.GUI
             }
         }
 
-        private void AddGameObjectToTreeView(GameObject gameObject)
+        private TreeNode AddGameObjectToTreeView(GameObject gameObject)
         {
+            var treeNode = new TreeNode(gameObject.Name)
+            {
+                Tag = gameObject
+            };
+
             if (gameObject.Parent == null)
             {
-                var treeNode = new TreeNode(gameObject.Name)
-                {
-                    Tag = gameObject
-                };
-
                 TreeViewGameObjects.Nodes.Add(treeNode);
             }
             else
@@ -134,13 +135,10 @@ namespace SharpNEX.Engine.GUI
 
                 var treeNodeParent = treeNodeList.Find(x => x.Tag as GameObject == gameObject.Parent);
 
-                var treeNode = new TreeNode(gameObject.Name)
-                {
-                    Tag = gameObject
-                };
-
                treeNodeParent.Nodes.Add(treeNode);
             }
+
+            return treeNode;
         }
 
         public static List<TreeNode> GetAllNodes(TreeView treeView)

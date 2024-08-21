@@ -45,9 +45,9 @@ namespace SharpNEX.Engine.GUI
             {
                 sceneManagementMenu.Show(Cursor.Position);
 
-                //bool objectHasBeenSelected = TreeViewGameObjects.SelectedNode == null;
-                //RenameToolStripMenuItem.Enabled = objectHasBeenSelected;
-                //DeleteToolStripMenuItem.Enabled = objectHasBeenSelected;
+                bool objectHasBeenSelected = TreeViewGameObjects.SelectedNode == null;
+                RenameToolStripMenuItem.Enabled = !objectHasBeenSelected;
+                DeleteToolStripMenuItem.Enabled = !objectHasBeenSelected;
             }
         }
 

@@ -33,6 +33,7 @@
             this.TreeViewGameObjects = new System.Windows.Forms.TreeView();
             this.sceneManagementMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RenameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DuplicateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CreateEmptyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,7 @@
             this.titleBar1.LogoColorFormNotActive = System.Drawing.Color.Gray;
             this.titleBar1.Margin = new System.Windows.Forms.Padding(2);
             this.titleBar1.Name = "titleBar1";
-            this.titleBar1.Size = new System.Drawing.Size(851, 29);
+            this.titleBar1.Size = new System.Drawing.Size(859, 29);
             this.titleBar1.TabIndex = 1;
             this.titleBar1.Text = "FormMain";
             // 
@@ -72,11 +73,12 @@
             // 
             this.sceneManagementMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RenameToolStripMenuItem,
+            this.DuplicateToolStripMenuItem,
             this.DeleteToolStripMenuItem,
             this.toolStripSeparator1,
             this.CreateEmptyToolStripMenuItem});
             this.sceneManagementMenu.Name = "contextMenuStrip1";
-            this.sceneManagementMenu.Size = new System.Drawing.Size(162, 76);
+            this.sceneManagementMenu.Size = new System.Drawing.Size(162, 98);
             // 
             // RenameToolStripMenuItem
             // 
@@ -84,6 +86,13 @@
             this.RenameToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.RenameToolStripMenuItem.Text = "Переименовать";
             this.RenameToolStripMenuItem.Click += new System.EventHandler(this.RenameToolStripMenuItem_Click);
+            // 
+            // DuplicateToolStripMenuItem
+            // 
+            this.DuplicateToolStripMenuItem.Name = "DuplicateToolStripMenuItem";
+            this.DuplicateToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.DuplicateToolStripMenuItem.Text = "Дублировать";
+            this.DuplicateToolStripMenuItem.Click += new System.EventHandler(this.DuplicateToolStripMenuItem_Click);
             // 
             // DeleteToolStripMenuItem
             // 
@@ -108,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 980);
+            this.ClientSize = new System.Drawing.Size(859, 1080);
             this.Controls.Add(this.TreeViewGameObjects);
             this.Controls.Add(this.titleBar1);
             this.Name = "SceneManager";
@@ -127,5 +136,6 @@
         private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem CreateEmptyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DuplicateToolStripMenuItem;
     }
 }

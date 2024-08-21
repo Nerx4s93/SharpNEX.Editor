@@ -54,6 +54,7 @@ namespace SharpNEX.Engine.GUI
                 bool objectHasBeenSelected = TreeViewGameObjects.SelectedNode == null;
                 RenameToolStripMenuItem.Enabled = !objectHasBeenSelected;
                 DeleteToolStripMenuItem.Enabled = !objectHasBeenSelected;
+                DuplicateToolStripMenuItem.Enabled = !objectHasBeenSelected;
             }
         }
 
@@ -74,6 +75,22 @@ namespace SharpNEX.Engine.GUI
         private void RenameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TreeViewGameObjects.SelectedNode.BeginEdit();
+        }
+
+        private void DuplicateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var gameObject = TreeViewGameObjects.SelectedNode.Tag as GameObject;
+
+            if (gameObject.Parent == null)
+            {
+                gameObject = GameData.Scene.Instantiate(gameObject);
+            }
+            else
+            {
+                gameObject = GameData.Scene.Instantiate(gameObject, gameObject.Parent);
+            }
+
+            LoadTreeView();
         }
 
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)

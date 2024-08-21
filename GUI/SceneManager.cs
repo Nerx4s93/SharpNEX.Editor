@@ -27,14 +27,20 @@ namespace SharpNEX.Engine.GUI
         private void TestCode_AddGameObjects()
         {
             GameData.Scene = new Scene("ExempleScene");
-            GameObject one = new GameObject("1", new List<Script>());
-            GameObject two = new GameObject("2", new List<Script>());
-            GameObject three = new GameObject("3", new List<Script>());
-            GameObject four = new GameObject("4", new List<Script>());
+
+            GameObject one = new GameObject("1");
+            GameObject two = new GameObject("2");
+            GameObject three = new GameObject("3");
+            GameObject four = new GameObject("4");
+
+            one = GameData.Scene.Instantiate(one);
+            two = GameData.Scene.Instantiate(two);
+            three = GameData.Scene.Instantiate(three);
+            four = GameData.Scene.Instantiate(four);
+
             one.AddChild(two);
-            one.AddChild(three);
-            two.AddChild(four);
-            GameData.Scene.Instantiate(one);
+            one.AddChild(four);
+            two.AddChild(three);
         }
 
         #region TreeViewGameObjects

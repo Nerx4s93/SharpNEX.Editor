@@ -83,11 +83,11 @@ namespace SharpNEX.Engine.GUI
 
             if (gameObject.Parent == null)
             {
-                gameObject = GameData.Scene.Instantiate(gameObject);
+                GameData.Scene.Instantiate(gameObject);
             }
             else
             {
-                gameObject = GameData.Scene.Instantiate(gameObject, gameObject.Parent);
+                GameData.Scene.Instantiate(gameObject, gameObject.Parent);
             }
 
             LoadTreeView();

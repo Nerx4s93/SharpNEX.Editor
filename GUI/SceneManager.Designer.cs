@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.titleBar1 = new SharpNEX.Editor.UI.TitleBar();
-            this.TreeViewGameObjects = new System.Windows.Forms.TreeView();
             this.sceneManagementMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.RenameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DuplicateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CreateEmptyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TreeViewGameObjects = new SharpNEX.Editor.UI.TreeViewGameObjects();
             this.sceneManagementMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,24 +52,9 @@
             this.titleBar1.LogoColorFormNotActive = System.Drawing.Color.Gray;
             this.titleBar1.Margin = new System.Windows.Forms.Padding(2);
             this.titleBar1.Name = "titleBar1";
-            this.titleBar1.Size = new System.Drawing.Size(367, 29);
+            this.titleBar1.Size = new System.Drawing.Size(371, 29);
             this.titleBar1.TabIndex = 1;
             this.titleBar1.Text = "SceneManager";
-            // 
-            // TreeViewGameObjects
-            // 
-            this.TreeViewGameObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TreeViewGameObjects.Indent = 10;
-            this.TreeViewGameObjects.LabelEdit = true;
-            this.TreeViewGameObjects.Location = new System.Drawing.Point(12, 34);
-            this.TreeViewGameObjects.Name = "TreeViewGameObjects";
-            this.TreeViewGameObjects.Size = new System.Drawing.Size(317, 737);
-            this.TreeViewGameObjects.TabIndex = 2;
-            this.TreeViewGameObjects.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.TreeViewGameObjects_AfterLabelEdit);
-            this.TreeViewGameObjects.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.TreeViewGameObjects_DrawNode);
-            this.TreeViewGameObjects.DoubleClick += new System.EventHandler(this.TreeViewGameObjects_DoubleClick);
-            this.TreeViewGameObjects.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewGameObjects_MouseDown);
-            this.TreeViewGameObjects.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TreeViewGameObjects_MouseUp);
             // 
             // sceneManagementMenu
             // 
@@ -115,11 +100,23 @@
             this.CreateEmptyToolStripMenuItem.Text = "Создать пустой";
             this.CreateEmptyToolStripMenuItem.Click += new System.EventHandler(this.CreateEmptyToolStripMenuItem_Click);
             // 
+            // TreeViewGameObjects
+            // 
+            this.TreeViewGameObjects.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
+            this.TreeViewGameObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TreeViewGameObjects.Location = new System.Drawing.Point(12, 34);
+            this.TreeViewGameObjects.Name = "TreeViewGameObjects";
+            this.TreeViewGameObjects.Size = new System.Drawing.Size(347, 740);
+            this.TreeViewGameObjects.TabIndex = 2;
+            this.TreeViewGameObjects.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.TreeViewGameObjects_AfterLabelEdit);
+            this.TreeViewGameObjects.DoubleClick += new System.EventHandler(this.TreeViewGameObjects_DoubleClick);
+            this.TreeViewGameObjects.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TreeViewGameObjects_MouseUp);
+            // 
             // SceneManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 786);
+            this.ClientSize = new System.Drawing.Size(371, 786);
             this.Controls.Add(this.TreeViewGameObjects);
             this.Controls.Add(this.titleBar1);
             this.Name = "SceneManager";
@@ -132,12 +129,12 @@
         #endregion
 
         private Editor.UI.TitleBar titleBar1;
-        private System.Windows.Forms.TreeView TreeViewGameObjects;
         private System.Windows.Forms.ContextMenuStrip sceneManagementMenu;
         private System.Windows.Forms.ToolStripMenuItem RenameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem CreateEmptyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DuplicateToolStripMenuItem;
+        private Editor.UI.TreeViewGameObjects TreeViewGameObjects;
     }
 }

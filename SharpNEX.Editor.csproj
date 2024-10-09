@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameData.cs" />
     <Compile Include="GUI\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +100,10 @@
     <ProjectReference Include="..\SharpNEX.Engine\SharpNEX.Engine.csproj">
       <Project>{8c7973f8-564a-4484-938f-09a02616e5ea}</Project>
       <Name>SharpNEX.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpNEX.Game\SharpNEX.Game.csproj">
+      <Project>{98c6dffb-fa75-4013-a0d8-d5b9cf41ea31}</Project>
+      <Name>SharpNEX.Game</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

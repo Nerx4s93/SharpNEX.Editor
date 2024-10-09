@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using SharpNEX.Editor.UI.GUI;
 
 using SharpNEX.Engine;
+using SharpNEX.Game;
 using DockPanelControler.Components;
 
 namespace SharpNEX.Engine.GUI
@@ -25,17 +26,17 @@ namespace SharpNEX.Engine.GUI
 
         private void TestCode_AddGameObjects()
         {
-            GameData.Scene = new Scene("ExempleScene");
+            Data.Scene = new Scene("ExempleScene");
 
             GameObject one = new GameObject("1");
             GameObject two = new GameObject("2");
             GameObject three = new GameObject("3");
             GameObject four = new GameObject("4");
 
-            one = GameData.Scene.Instantiate(one);
-            two = GameData.Scene.Instantiate(two);
-            three = GameData.Scene.Instantiate(three);
-            four = GameData.Scene.Instantiate(four);
+            one = Data.Scene.Instantiate(one);
+            two = Data.Scene.Instantiate(two);
+            three = Data.Scene.Instantiate(three);
+            four = Data.Scene.Instantiate(four);
 
             one.AddChild(two);
             one.AddChild(four);
@@ -82,11 +83,11 @@ namespace SharpNEX.Engine.GUI
 
             if (gameObject.Parent == null)
             {
-                GameData.Scene.Instantiate(gameObject);
+                Data.Scene.Instantiate(gameObject);
             }
             else
             {
-                GameData.Scene.Instantiate(gameObject, gameObject.Parent);
+                Data.Scene.Instantiate(gameObject, gameObject.Parent);
             }
 
             LoadTreeView();
@@ -97,7 +98,7 @@ namespace SharpNEX.Engine.GUI
             var node = TreeViewGameObjects.SelectedNode;
 
             var gameObject = node.Tag as GameObject;
-            GameData.Scene.Destroy(gameObject);
+            Data.Scene.Destroy(gameObject);
 
             TreeViewGameObjects.Nodes.Remove(node);
         }
@@ -108,12 +109,12 @@ namespace SharpNEX.Engine.GUI
 
             if (TreeViewGameObjects.SelectedNode == null)
             {
-                GameData.Scene.Instantiate(gameObject);
+                Data.Scene.Instantiate(gameObject);
             }
             else
             {
                 var parent = TreeViewGameObjects.SelectedNode.Tag as GameObject;
-                gameObject = GameData.Scene.Instantiate(gameObject, parent);
+                gameObject = Data.Scene.Instantiate(gameObject, parent);
             }
 
             var treeNode = AddGameObjectToTreeView(gameObject);
@@ -127,7 +128,7 @@ namespace SharpNEX.Engine.GUI
         {
             TreeViewGameObjects.Nodes.Clear();
 
-            var gameObjects = GameData.Scene.GetGameObjects();
+            var gameObjects = Data.Scene.GetGameObjects();
 
             foreach (var gameObject in gameObjects)
             {

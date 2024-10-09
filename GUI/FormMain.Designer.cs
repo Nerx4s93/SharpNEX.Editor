@@ -47,7 +47,7 @@
             this.titleBar1.LogoColorFormNotActive = System.Drawing.Color.Gray;
             this.titleBar1.Margin = new System.Windows.Forms.Padding(2);
             this.titleBar1.Name = "titleBar1";
-            this.titleBar1.Size = new System.Drawing.Size(1106, 45);
+            this.titleBar1.Size = new System.Drawing.Size(1114, 45);
             this.titleBar1.TabIndex = 0;
             this.titleBar1.Text = "FormMain";
             // 
@@ -73,7 +73,7 @@
             this.dockPanelRight.BackColorOnFormMove = System.Drawing.Color.Silver;
             this.dockPanelRight.BodyPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dockPanelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dockPanelRight.Location = new System.Drawing.Point(833, 45);
+            this.dockPanelRight.Location = new System.Drawing.Point(841, 45);
             this.dockPanelRight.Name = "dockPanelRight";
             this.dockPanelRight.OutlineColorOnFormEnter = System.Drawing.Color.Red;
             this.dockPanelRight.OutlineColorOnFormMove = System.Drawing.Color.Gray;
@@ -94,7 +94,7 @@
             this.dockPanelTop.OutlineColorOnFormEnter = System.Drawing.Color.Red;
             this.dockPanelTop.OutlineColorOnFormMove = System.Drawing.Color.Gray;
             this.dockPanelTop.OutlineWidth = 3F;
-            this.dockPanelTop.Size = new System.Drawing.Size(560, 757);
+            this.dockPanelTop.Size = new System.Drawing.Size(568, 757);
             this.dockPanelTop.TabIndex = 3;
             this.dockPanelTop.Text = "dockPanel2";
             this.dockPanelTop.TitleBarPanelBackColor = System.Drawing.Color.Silver;
@@ -110,7 +110,7 @@
             this.dockPanelBottom.OutlineColorOnFormEnter = System.Drawing.Color.Red;
             this.dockPanelBottom.OutlineColorOnFormMove = System.Drawing.Color.Gray;
             this.dockPanelBottom.OutlineWidth = 3F;
-            this.dockPanelBottom.Size = new System.Drawing.Size(560, 212);
+            this.dockPanelBottom.Size = new System.Drawing.Size(568, 212);
             this.dockPanelBottom.TabIndex = 4;
             this.dockPanelBottom.Text = "dockPanel2";
             this.dockPanelBottom.TitleBarPanelBackColor = System.Drawing.Color.Silver;
@@ -119,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 802);
+            this.ClientSize = new System.Drawing.Size(1114, 802);
             this.Controls.Add(this.dockPanelBottom);
             this.Controls.Add(this.dockPanelTop);
             this.Controls.Add(this.dockPanelRight);

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpNEX.Editor.UI", "..\Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpNEX.Engine", "..\SharpNEX.Engine\SharpNEX.Engine.csproj", "{8C7973F8-564A-4484-938F-09A02616E5EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpNEX.Game", "..\SharpNEX.Game\SharpNEX.Game.csproj", "{98C6DFFB-FA75-4013-A0D8-D5B9CF41EA31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8C7973F8-564A-4484-938F-09A02616E5EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C7973F8-564A-4484-938F-09A02616E5EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C7973F8-564A-4484-938F-09A02616E5EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98C6DFFB-FA75-4013-A0D8-D5B9CF41EA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98C6DFFB-FA75-4013-A0D8-D5B9CF41EA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98C6DFFB-FA75-4013-A0D8-D5B9CF41EA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98C6DFFB-FA75-4013-A0D8-D5B9CF41EA31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

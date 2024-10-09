@@ -19,9 +19,10 @@ namespace SharpNEX.Engine.GUI
         {
             InitializeComponent();
             _formDockHandler = new FormDockHandler(this);
-
             TestCode_AddGameObjects();
             LoadTreeView();
+
+            TreeViewGameObjects.DrawMode = TreeViewDrawMode.OwnerDrawText;
         }
 
         private void TestCode_AddGameObjects()
@@ -44,6 +45,43 @@ namespace SharpNEX.Engine.GUI
         }
 
         #region TreeViewGameObjects
+
+        private void TreeViewGameObjects_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            var treeView = sender as TreeView;
+
+            var nodeBounds = new Rectangle(e.Bounds.X, e.Bounds.Y, treeView.ClientSize.Width - e.Bounds.X, e.Bounds.Height);
+
+            if ((e.State & TreeNodeStates.Selected) != 0)
+            {
+                e.Graphics.FillRectangle(SystemBrushes.Highlight, nodeBounds);
+                TextRenderer.DrawText(e.Graphics, e.Node.Text, treeView.Font, nodeBounds, SystemColors.HighlightText, TextFormatFlags.VerticalCenter);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(SystemBrushes.Window, nodeBounds);
+                TextRenderer.DrawText(e.Graphics, e.Node.Text, treeView.Font, nodeBounds, SystemColors.WindowText, TextFormatFlags.VerticalCenter);
+            }
+
+            e.DrawDefault = false;
+        }
+
+        private void TreeViewGameObjects_MouseDown(object sender, MouseEventArgs e)
+        {
+            var treeView = sender as TreeView;
+
+            var clickedNode = treeView.GetNodeAt(e.Location);
+
+            if (clickedNode != null)
+            {
+                var nodeBounds = new Rectangle(0, clickedNode.Bounds.Y, treeView.ClientSize.Width, clickedNode.Bounds.Height);
+
+                if (nodeBounds.Contains(e.Location))
+                {
+                    treeView.SelectedNode = clickedNode;
+                }
+            }
+        }
 
         private void TreeViewGameObjects_MouseUp(object sender, MouseEventArgs e)
         {

@@ -52,7 +52,7 @@
             this.titleBar1.LogoColorFormNotActive = System.Drawing.Color.Gray;
             this.titleBar1.Margin = new System.Windows.Forms.Padding(2);
             this.titleBar1.Name = "titleBar1";
-            this.titleBar1.Size = new System.Drawing.Size(347, 29);
+            this.titleBar1.Size = new System.Drawing.Size(367, 29);
             this.titleBar1.TabIndex = 1;
             this.titleBar1.Text = "SceneManager";
             // 
@@ -66,7 +66,9 @@
             this.TreeViewGameObjects.Size = new System.Drawing.Size(317, 737);
             this.TreeViewGameObjects.TabIndex = 2;
             this.TreeViewGameObjects.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.TreeViewGameObjects_AfterLabelEdit);
+            this.TreeViewGameObjects.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.TreeViewGameObjects_DrawNode);
             this.TreeViewGameObjects.DoubleClick += new System.EventHandler(this.TreeViewGameObjects_DoubleClick);
+            this.TreeViewGameObjects.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewGameObjects_MouseDown);
             this.TreeViewGameObjects.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TreeViewGameObjects_MouseUp);
             // 
             // sceneManagementMenu
@@ -117,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 786);
+            this.ClientSize = new System.Drawing.Size(367, 786);
             this.Controls.Add(this.TreeViewGameObjects);
             this.Controls.Add(this.titleBar1);
             this.Name = "SceneManager";

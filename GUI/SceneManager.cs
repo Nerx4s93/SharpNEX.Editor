@@ -4,15 +4,13 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-using SharpNEX.Editor.UI.GUI;
-
 using SharpNEX.Engine;
 using SharpNEX.Game;
 using DockPanelControler.Components;
 
 namespace SharpNEX.Engine.GUI
 {
-    public partial class SceneManager : FormTitleBarlessBase
+    public partial class SceneManager : Form
     {
         private FormDockHandler _formDockHandler;
 
@@ -109,5 +107,10 @@ namespace SharpNEX.Engine.GUI
         }
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(Width + "; " + Height);
+        }
     }
 }

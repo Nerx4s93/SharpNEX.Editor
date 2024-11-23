@@ -1,9 +1,10 @@
-﻿using SharpNEX.Editor.UI.GUI;
+﻿using System.Windows.Forms;
+
 using SharpNEX.Engine.GUI;
 
 namespace SharpNEX.Editor.GUI
 {
-    public partial class FormMain : FormTitleBarlessBase
+    public partial class FormMain : Form
     {
         public FormMain()
         {

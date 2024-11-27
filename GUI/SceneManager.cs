@@ -4,13 +4,14 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
+using SharpNEX.Editor.UI;
 using SharpNEX.Engine;
 using SharpNEX.Game;
 using DockPanelControler.Components;
 
 namespace SharpNEX.Engine.GUI
 {
-    public partial class SceneManager : Form
+    public partial class SceneManager : CustomFromBaase
     {
         private FormDockHandler _formDockHandler;
 

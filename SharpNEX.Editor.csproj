@@ -50,6 +50,12 @@
     <Compile Include="GUI\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GameRuner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GameRuner.Designer.cs">
+      <DependentUpon>GameRuner.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\SceneManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\GameRuner.resx">
+      <DependentUpon>GameRuner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\SceneManager.resx">
       <DependentUpon>SceneManager.cs</DependentUpon>
